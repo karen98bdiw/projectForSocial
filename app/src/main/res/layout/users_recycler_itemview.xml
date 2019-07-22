@@ -1,11 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:id="@+id/userItemView"
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:padding="10dp"
+        android:id="@+id/userItemView"
 >
 
-    <TextView android:id="@+id/userNameView" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <ImageView
+            android:id="@+id/userImageViewInUsers"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/ic_launcher_round"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+    />
 
-</LinearLayout>
+    <TextView
+            android:id="@+id/userNameView"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_green_dark"
+            app:layout_constraintLeft_toRightOf="@+id/userImageViewInUsers"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:textSize="10dp"
+            android:text="7/3/2019"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+            android:textColor="@android:color/holo_orange_dark"
+            app:layout_constraintTop_toBottomOf="@id/userNameView"
+            app:layout_constraintLeft_toRightOf="@id/userImageViewInUsers"
+            android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

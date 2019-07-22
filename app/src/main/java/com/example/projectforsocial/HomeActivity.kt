@@ -80,7 +80,6 @@ class HomeActivity : AppCompatActivity() {
 
                     if (message != null) {
                         if(message!!.receiver.equals(curentUser?.uid)){
-                            Toast.makeText(this@HomeActivity,"You have a message|messageText${message.message}",Toast.LENGTH_SHORT).show()
                         }
                     }else{
                         Log.e("null","message is null")
