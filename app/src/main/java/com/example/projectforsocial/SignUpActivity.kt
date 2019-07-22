@@ -37,7 +37,7 @@ class SignUpActivity : AppCompatActivity() {
                     if(it.isSuccessful){
                         Log.e("registr","registrd")
 
-                        val user = User(name, surname, mail, password)
+                        val user = User(it.result!!.user.uid,name, surname, mail, password)
                         mDatabase.reference.child("users").child(it.result!!.user.uid).setValue(user).addOnCompleteListener {
                             if(it.isSuccessful){
                                 Log.e("reqister","registredWithDatabase")
