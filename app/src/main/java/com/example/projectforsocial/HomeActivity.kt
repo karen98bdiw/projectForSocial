@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.FirebaseApp
@@ -42,29 +43,11 @@ class HomeActivity : AppCompatActivity() {
              startActivity(intent)
          }
 
-          if(curentUser == null){
+        if(curentUser == null){
               Log.e("isSign","no")
               val intent = Intent(this@HomeActivity,SignUpActivity::class.java)
               startActivity(intent)
           }else{
-              Log.e("isSign","yes")
-              mDatabase.reference.child("users").child(curentUser!!.uid).addListenerForSingleValueEvent(object: ValueEventListener{
-
-                  override fun onDataChange(p0: DataSnapshot) {
-
-                      val user = p0.getValue(User::class.java)
-                      Log.e("signedDrowInfo","name:${user!!.name}|surname:${user.surname},mail:${user.mail},password:${user.password},id:${user.id},")
-
-                  }
-
-                  override fun onCancelled(p0: DatabaseError) {
-                      Log.e("onCanceled","canceled${p0.toException()}")
-                  }
-
-
-
-              })
-
               mDatabase.reference.child("users").addValueEventListener(object: ValueEventListener{
                   override fun onCancelled(p0: DatabaseError) {
 
@@ -85,9 +68,31 @@ class HomeActivity : AppCompatActivity() {
 
           }
 
+        mDatabase.reference.child("chat").addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+
+                p0.children.forEach {
+                    val message = it.getValue(Message::class.java)
+
+                    if (message != null) {
+                        if(message!!.receiver.equals(curentUser?.uid)){
+                            Toast.makeText(this@HomeActivity,"You have a message|messageText${message.message}",Toast.LENGTH_SHORT).show()
+                        }
+                    }else{
+                        Log.e("null","message is null")
+                    }
+
+                }
+
+            }
+
+        })
+
     }
-
-
 
 
 }

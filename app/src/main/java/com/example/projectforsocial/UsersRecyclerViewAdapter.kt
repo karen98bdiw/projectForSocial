@@ -1,5 +1,6 @@
 package com.example.projectforsocial
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ class UsersRecyclerViewAdapter(users:List<User>) : RecyclerView.Adapter<UsersRec
     init {
         this.users = users
     }
+
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,11 +32,20 @@ class UsersRecyclerViewAdapter(users:List<User>) : RecyclerView.Adapter<UsersRec
 
         holder.userNameView.setText(users.get(position).name)
 
+        holder.itemView.setOnClickListener {
+
+            val intent = Intent(holder.itemView.context,ChatActivity::class.java)
+
+            intent.putExtra("receiverUser",users.get(position))
+
+            holder.itemView.context.startActivity(intent)
+        }
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val userNameView = itemView.userNameView
+        val userItemView = itemView.userItemView
 
     }
 }

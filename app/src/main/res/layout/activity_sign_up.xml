@@ -12,9 +12,9 @@
         tools:context=".SignUpActivity">
 
     <EditText android:id="@+id/signUpInputNameView" android:layout_width="match_parent" android:layout_height="50dp" android:hint="name"/>
-    <EditText android:id="@+id/signUpInputSurnameView" android:layout_width="match_parent" android:layout_height="50dp" android:hint="name"/>
-    <EditText android:id="@+id/signUpInputMailView" android:layout_width="match_parent" android:layout_height="50dp" android:hint="name"/>
-    <EditText android:id="@+id/signUpInputPasswordView" android:layout_width="match_parent" android:layout_height="50dp" android:hint="name"/>
+    <EditText android:id="@+id/signUpInputSurnameView" android:layout_width="match_parent" android:layout_height="50dp" android:hint="surname"/>
+    <EditText android:id="@+id/signUpInputMailView" android:layout_width="match_parent" android:layout_height="50dp" android:hint="email"/>
+    <EditText android:id="@+id/signUpInputPasswordView" android:layout_width="match_parent" android:layout_height="50dp" android:hint="password"/>
 
     <Button android:id="@+id/signUpBtn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="SignUp"/>
     <Button android:id="@+id/signInBtnIfHaveAcaunt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="SignIn"/>

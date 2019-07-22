@@ -11,7 +11,7 @@
         android:paddingTop="100dp"
         tools:context=".SignInActivity">
 
-    <EditText android:id="@+id/signInMailInputView" android:layout_width="match_parent" android:layout_height="60dp"/>
-    <EditText android:id="@+id/signPasswordInputView" android:layout_width="match_parent" android:layout_height="60dp"/>
+    <EditText android:id="@+id/signInMailInputView" android:layout_width="match_parent" android:layout_height="60dp" android:hint="email"/>
+    <EditText android:id="@+id/signPasswordInputView" android:layout_width="match_parent" android:layout_height="60dp" android:hint="password"/>
     <Button  android:id="@+id/signInBtn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="SignIn"/>
 </LinearLayout>
